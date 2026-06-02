@@ -40,6 +40,7 @@
         nom:       extra.nom    || user.displayName?.split(' ').slice(1).join(' ') || '',
         prenom:    extra.prenom || user.displayName?.split(' ')[0] || '',
         pays:      extra.pays   || '',
+        niveau:    extra.niveau || '',
         photoURL:  user.photoURL || '',
         createdAt: serverTimestamp(),
         lastLogin: serverTimestamp(),
@@ -521,7 +522,17 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           <optgroup label="Autre"><option value="Autre">🌍 Autre</option></optgroup>
         </select>
       </div>
-      <button class="btn-primary" id="btn-register" onclick="handleRegister()">Créer mon compte</button>
+      <div class="field">
+        <label>Niveau actuel</label>
+        <select id="reg-niveau">
+          <option value="">— Sélectionnez votre niveau —</option>
+          <option value="Débutant">🌱 Débutant — Je commence l'informatique</option>
+          <option value="Intermédiaire">⚡ Intermédiaire — Je connais déjà Python</option>
+          <option value="Avancé">🔥 Avancé — J'ai déjà fait du ML / Data Science</option>
+        </select>
+        <div style="font-size:11px;color:var(--t3);margin-top:5px;font-family:var(--mono)">Aide à personnaliser votre parcours D.I.A.M</div>
+      </div>
+            <button class="btn-primary" id="btn-register" onclick="handleRegister()">Créer mon compte</button>
       <div class="divider-or">ou</div>
       <button class="btn-google" onclick="handleGoogleLogin()">
         <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
@@ -615,7 +626,7 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           <div class="formation-card-tag">Phase 1 · Foundations · Démarrez ici</div>
           <div class="formation-card-title">Bootcamp Python 10 Jours</div>
           <div class="formation-card-desc">Votre première étape dans le parcours D.I.A.M. 10 jours intensifs pour maîtriser Python de A à Z — variables, fonctions, listes, POO, fichiers, NumPy, Pandas et un projet final complet.</div>
-          <a href="https://formationpython10days.netlify.app/" rel="noopener" class="formation-card-link">Accéder à la formation Python</a>
+          <a href="https://formationpython10days.netlify.app/" target="_blank" rel="noopener" class="formation-card-link">Accéder à la formation Python</a>
         </div>
       </div>
 
@@ -625,7 +636,7 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           <div class="formation-card-tag">Phase 2 · Data Science</div>
           <div class="formation-card-title">Bootcamp Data Science 4 Semaines</div>
           <div class="formation-card-desc">Pandas, NumPy, Matplotlib, Seaborn et EDA complète sur données africaines réelles. 4 semaines pour maîtriser l'analyse de données de A à Z.</div>
-          <a href="https://datascience-diam.netlify.app/" rel="noopener" class="formation-card-link">Accéder à la formation Data Science</a>
+          <a href="https://datascience-diam.netlify.app/" target="_blank" rel="noopener" class="formation-card-link">Accéder à la formation Data Science</a>
         </div>
       </div>
 
@@ -635,7 +646,7 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           <div class="formation-card-tag">Phase 3 · Machine Learning</div>
           <div class="formation-card-title">Bootcamp Machine Learning 4 Semaines</div>
           <div class="formation-card-desc">Régression, classification, Random Forest, XGBoost, SHAP et déploiement Flask. Des projets concrets sur des problèmes africains réels.</div>
-          <a href="https://machinelearning-diam.netlify.app/" rel="noopener" class="formation-card-link">Accéder à la formation ML</a>
+          <a href="https://machinelearning-diam.netlify.app/" target="_blank" rel="noopener" class="formation-card-link">Accéder à la formation ML</a>
         </div>
       </div>
 
@@ -699,7 +710,7 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           <div class="formation-card-tag">Ressource principale · Phase 1</div>
           <div class="formation-card-title">Bootcamp Python 10 Jours</div>
           <div class="formation-card-desc">La formation complète pour maîtriser Python — directement liée à la Phase 1 du parcours D.I.A.M. Suivez les 10 jours en parallèle des semaines 1-3.</div>
-          <a href="https://formationpython10days.netlify.app/" rel="noopener" class="formation-card-link">Ouvrir la formation Python</a>
+          <a href="https://formationpython10days.netlify.app/" target="_blank" rel="noopener" class="formation-card-link">Ouvrir la formation Python</a>
         </div>
       </div>
 
@@ -784,7 +795,7 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           <div class="formation-card-tag">Ressource principale · Phase 2</div>
           <div class="formation-card-title">Bootcamp Data Science 4 Semaines</div>
           <div class="formation-card-desc">Le programme complet de la Phase 2 — Pandas, NumPy, Matplotlib, Seaborn et EDA complète sur données africaines réelles. Cours, exercices et 3 projets finaux.</div>
-          <a href="https://datascience-diam.netlify.app/" rel="noopener" class="formation-card-link">Ouvrir la formation Data Science</a>
+          <a href="https://datascience-diam.netlify.app/" target="_blank" rel="noopener" class="formation-card-link">Ouvrir la formation Data Science</a>
         </div>
       </div>
 
@@ -831,7 +842,7 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           <div class="formation-card-tag">Ressource principale · Phase 3</div>
           <div class="formation-card-title">Bootcamp Machine Learning 4 Semaines</div>
           <div class="formation-card-desc">Le programme complet de la Phase 3 — Régression, classification, Random Forest, XGBoost, SHAP et déploiement API Flask. Projets sur données africaines réelles.</div>
-          <a href="https://machinelearning-diam.netlify.app/" rel="noopener" class="formation-card-link">Ouvrir la formation Machine Learning</a>
+          <a href="https://machinelearning-diam.netlify.app/" target="_blank" rel="noopener" class="formation-card-link">Ouvrir la formation Machine Learning</a>
         </div>
       </div>
 
@@ -994,17 +1005,17 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
       <div class="resource-group">
         <div class="resource-group-title">Formations D.I.A.M — Accès Direct</div>
         <div class="resource-list">
-          <div class="resource-item" style="border-color:rgba(16,185,129,0.3);cursor:pointer" onclick="window.location.href='https://formationpython10days.netlify.app/'">
+          <div class="resource-item" style="border-color:rgba(16,185,129,0.3);cursor:pointer" onclick="window.open('https://formationpython10days.netlify.app/','_blank')">
             <div class="resource-icon" style="background:rgba(16,185,129,0.12)">🐍</div>
             <div class="resource-info"><div class="resource-name">Bootcamp Python 10 Jours — D.I.A.M</div><div class="resource-desc">Phase 1 · 10 jours · 50+ exercices · 10 mini-projets · données africaines</div></div>
             <span class="resource-tag" style="color:var(--emerald);border-color:rgba(16,185,129,0.3)">⭐ Phase 1</span>
           </div>
-          <div class="resource-item" style="border-color:rgba(59,130,246,0.3);cursor:pointer" onclick="window.location.href='https://datascience-diam.netlify.app/'">
+          <div class="resource-item" style="border-color:rgba(59,130,246,0.3);cursor:pointer" onclick="window.open('https://datascience-diam.netlify.app/','_blank')">
             <div class="resource-icon" style="background:rgba(59,130,246,0.12)">📊</div>
             <div class="resource-info"><div class="resource-name">Bootcamp Data Science 4 Semaines — D.I.A.M</div><div class="resource-desc">Phase 2 · Pandas, NumPy, Matplotlib, Seaborn, EDA · 3 projets finaux africains</div></div>
             <span class="resource-tag" style="color:var(--p2);border-color:rgba(59,130,246,0.3)">⭐ Phase 2</span>
           </div>
-          <div class="resource-item" style="border-color:rgba(245,158,11,0.3);cursor:pointer" onclick="window.location.href='https://machinelearning-diam.netlify.app/'">
+          <div class="resource-item" style="border-color:rgba(245,158,11,0.3);cursor:pointer" onclick="window.open('https://machinelearning-diam.netlify.app/','_blank')">
             <div class="resource-icon" style="background:rgba(245,158,11,0.12)">🤖</div>
             <div class="resource-info"><div class="resource-name">Bootcamp Machine Learning 4 Semaines — D.I.A.M</div><div class="resource-desc">Phase 3 · Régression, classification, XGBoost, SHAP, Flask API · projets africains</div></div>
             <span class="resource-tag" style="color:var(--p3);border-color:rgba(245,158,11,0.3)">⭐ Phase 3</span>
@@ -1048,8 +1059,12 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
         <div class="admin-stat-card"><div class="admin-stat-num" id="stat-countries">—</div><div class="admin-stat-label">Pays représentés</div></div>
         <div class="admin-stat-card"><div class="admin-stat-num" id="stat-google">—</div><div class="admin-stat-label">Via Google</div></div>
         <div class="admin-stat-card"><div class="admin-stat-num" id="stat-email">—</div><div class="admin-stat-label">Via Email</div></div>
+        <div class="admin-stat-card"><div class="admin-stat-num" id="stat-debutant">—</div><div class="admin-stat-label">🌱 Débutants</div></div>
+        <div class="admin-stat-card"><div class="admin-stat-num" id="stat-inter">—</div><div class="admin-stat-label">⚡ Intermédiaires</div></div>
+        <div class="admin-stat-card"><div class="admin-stat-num" id="stat-avance">—</div><div class="admin-stat-label">🔥 Avancés</div></div>
+        <div class="admin-stat-card"><div class="admin-stat-num" id="stat-sans-niveau" style="font-size:28px">—</div><div class="admin-stat-label">— Sans niveau</div></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px" class="admin-grid-tables">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px" class="admin-grid-tables">
         <div>
           <div class="content-section-title">Répartition par Pays</div>
           <div style="background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden">
@@ -1057,10 +1072,16 @@ body{background:var(--surface);color:var(--t1);font-family:var(--sans);font-size
           </div>
         </div>
         <div>
-          <div class="content-section-title">Membres Récents</div>
+          <div class="content-section-title">Répartition par Niveau</div>
           <div style="background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden">
-            <table class="users-table"><thead><tr><th>Nom</th><th>Pays</th><th>Source</th></tr></thead><tbody id="users-tbody"><tr><td colspan="3" style="text-align:center;color:var(--t3);padding:20px">Chargement...</td></tr></tbody></table>
+            <table class="countries-table"><thead><tr><th>Niveau</th><th>Membres</th><th>%</th></tr></thead><tbody id="niveaux-tbody"><tr><td colspan="3" style="text-align:center;color:var(--t3);padding:20px">Chargement...</td></tr></tbody></table>
           </div>
+        </div>
+      </div>
+      <div style="margin-bottom:32px">
+        <div class="content-section-title">Membres Récents</div>
+        <div style="background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden">
+          <table class="users-table"><thead><tr><th>Nom</th><th>Pays</th><th>Niveau</th><th>Source</th></tr></thead><tbody id="users-tbody"><tr><td colspan="4" style="text-align:center;color:var(--t3);padding:20px">Chargement...</td></tr></tbody></table>
         </div>
       </div>
       <button onclick="loadAdminStats()" style="background:var(--card);border:1px solid var(--line);color:var(--t2);padding:10px 20px;border-radius:var(--radius);cursor:pointer;font-family:var(--sans);font-size:14px;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.15)'" onmouseout="this.style.borderColor='var(--line)'">↻ Actualiser les données</button>
@@ -1166,14 +1187,15 @@ async function handleRegister() {
   const email  = document.getElementById('reg-email').value.trim();
   const pwd    = document.getElementById('reg-pwd').value;
   const pays   = document.getElementById('reg-pays').value;
-  if (!prenom||!nom||!email||!pwd||!pays) { showError('Veuillez remplir tous les champs.'); return; }
+  const niveau = document.getElementById('reg-niveau').value;
+  if (!prenom||!nom||!email||!pwd||!pays||!niveau) { showError('Veuillez remplir tous les champs.'); return; }
   if (pwd.length < 6) { showError('Le mot de passe doit contenir au moins 6 caractères.'); return; }
   setLoading('btn-register', true);
   try {
     const fb   = window._FB;
     const cred = await fb.createUserWithEmailAndPassword(fb.auth, email, pwd);
     await fb.updateProfile(cred.user, { displayName: prenom+' '+nom });
-    await fb.saveUser(cred.user, { prenom, nom, pays, provider: 'email' });
+    await fb.saveUser(cred.user, { prenom, nom, pays, niveau, provider: 'email' });
     showToast('Compte créé ! Bienvenue dans D.I.A.M 🎉', 'rgba(16,185,129,0.5)');
   } catch (e) { showError(friendlyError(e.code)); }
   finally { setLoading('btn-register', false); }
@@ -1234,16 +1256,60 @@ async function loadAdminStats() {
     const snap  = await fb.getDocs(fb.collection(fb.db,'users'));
     const users = [];
     snap.forEach(d => users.push(d.data()));
+
+    // ── Compteurs globaux ──────────────────────────────
     document.getElementById('stat-total').textContent = users.length;
-    const pays = {}; let google = 0, email = 0;
-    users.forEach(u => { if (u.pays) pays[u.pays]=(pays[u.pays]||0)+1; if (u.provider==='google') google++; else email++; });
-    document.getElementById('stat-countries').textContent = Object.keys(pays).length;
-    document.getElementById('stat-google').textContent    = google;
-    document.getElementById('stat-email').textContent     = email;
-    const sortedPays = Object.entries(pays).sort((a,b)=>b[1]-a[1]);
-    document.getElementById('countries-tbody').innerHTML = sortedPays.map(([p,n])=>`<tr><td>${p}</td><td>${n}</td><td>${Math.round(n/users.length*100)}%</td></tr>`).join('')||'<tr><td colspan="3" style="text-align:center;color:var(--t3)">Aucune donnée</td></tr>';
+
+    const pays = {}; const niveaux = {}; let google = 0, email = 0;
+    const niveauIcon = { 'Débutant':'🌱', 'Intermédiaire':'⚡', 'Avancé':'🔥' };
+
+    users.forEach(u => {
+      if (u.pays)   pays[u.pays]      = (pays[u.pays]||0) + 1;
+      if (u.niveau) niveaux[u.niveau] = (niveaux[u.niveau]||0) + 1;
+      if (u.provider === 'google') google++; else email++;
+    });
+
+    document.getElementById('stat-countries').textContent  = Object.keys(pays).length;
+    document.getElementById('stat-google').textContent     = google;
+    document.getElementById('stat-email').textContent      = email;
+    document.getElementById('stat-debutant').textContent   = niveaux['Débutant']      || 0;
+    document.getElementById('stat-inter').textContent      = niveaux['Intermédiaire'] || 0;
+    document.getElementById('stat-avance').textContent     = niveaux['Avancé']        || 0;
+    document.getElementById('stat-sans-niveau').textContent = users.filter(u => !u.niveau).length;
+
+    // ── Tableau pays ───────────────────────────────────
+    const sortedPays = Object.entries(pays).sort((a,b) => b[1]-a[1]);
+    document.getElementById('countries-tbody').innerHTML =
+      sortedPays.map(([p,n]) =>
+        `<tr><td>${p}</td><td>${n}</td><td>${Math.round(n/users.length*100)}%</td></tr>`
+      ).join('') ||
+      '<tr><td colspan="3" style="text-align:center;color:var(--t3)">Aucune donnée</td></tr>';
+
+    // ── Tableau niveaux (gère les anciens membres sans niveau) ──
+    const niveauOrder = ['Débutant','Intermédiaire','Avancé'];
+    const sansNiveau  = users.filter(u => !u.niveau).length;
+    let niveauRows = niveauOrder.map(nv => {
+      const n = niveaux[nv] || 0;
+      return `<tr><td>${niveauIcon[nv]} ${nv}</td><td>${n}</td><td>${users.length ? Math.round(n/users.length*100) : 0}%</td></tr>`;
+    });
+    if (sansNiveau > 0) {
+      niveauRows.push(
+        `<tr><td style="color:var(--t3)">— Non renseigné</td><td style="color:var(--t3)">${sansNiveau}</td><td style="color:var(--t3)">${Math.round(sansNiveau/users.length*100)}%</td></tr>`
+      );
+    }
+    document.getElementById('niveaux-tbody').innerHTML = niveauRows.join('');
+
+    // ── Tableau membres récents (avec niveau ou "—") ───
     const last15 = users.slice(-15).reverse();
-    document.getElementById('users-tbody').innerHTML = last15.map(u=>{const name=(u.prenom||'')+' '+(u.nom||'');return`<tr><td>${name.trim()||u.email}</td><td>${u.pays||'—'}</td><td>${u.provider==='google'?'🔵 Google':'📧 Email'}</td></tr>`;}).join('')||'<tr><td colspan="3" style="text-align:center;color:var(--t3)">Aucun membre</td></tr>';
+    document.getElementById('users-tbody').innerHTML =
+      last15.map(u => {
+        const name = ((u.prenom||'') + ' ' + (u.nom||'')).trim() || u.email;
+        const niv  = u.niveau ? (niveauIcon[u.niveau]||'') + ' ' + u.niveau : '<span style="color:var(--t3)">—</span>';
+        const src  = u.provider === 'google' ? '🔵 Google' : '📧 Email';
+        return `<tr><td>${name}</td><td>${u.pays||'—'}</td><td>${niv}</td><td>${src}</td></tr>`;
+      }).join('') ||
+      '<tr><td colspan="4" style="text-align:center;color:var(--t3)">Aucun membre</td></tr>';
+
   } catch(e) { console.error(e); showToast('Erreur chargement statistiques.','rgba(244,63,94,0.5)'); }
 }
 
